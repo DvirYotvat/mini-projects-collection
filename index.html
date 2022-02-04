@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="test.js"></script>
+    <link href="style.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <div class="Question_1">
+      <h1>Question 1</h1>
+
+      <h2>Question 1 a</h2>
+      <div id="answer_question_1_a"></div>
+      <button type="button" onclick="get_my_details()">
+        Get my obj details
+      </button>
+
+      <h2>Question 1 b</h2>
+      <div id="answer_question_1_b"></div>
+      <select id="get_details">
+        <option value="FirstName">First Name</option>
+        <option value="LestName">Lest Name</option>
+        <option value="Age">Age</option>
+        <option value="Hobby">Hobby</option>
+      </select>
+
+      <button type="button" onclick="get_my_details2()">
+        Get my obj details2
+      </button>
+    </div>
+    <div class="calculator">
+      <h1>calculator</h1>
+      Enter first number
+      <input type="number" id="firstNumber"/>
+    </br>
+    Enter second number
+    <input type="number" id="secondNumber"/>
+    <div id="answer_calculator"></div>
+    <button type="button" onclick="calculator_1()">
+      +
+    </button>
+    <button type="button" onclick="calculator_2()">
+      -
+    </button>
+    <button type="button" onclick="calculator_3()">
+      x
+    </button>
+    </div>
+
+
+    <div class = "rock_paper_scissors_game"> 
+      <button id = "new_game_rock_paper_scissors" onclick = "make_new_rock_paper_scissors_game()">New Game</button>
+      user score: <span id="user_score" class="counters">0</span>
+      pc score: <span id="pc_score" class="counters">0</span>
+    </br>
+      <label>
+        <input type="radio" name="Rock_Paper_Scissors" value="rock" onclick = "Rock_Paper_Scissors_game()">
+        <img src="/img/rock.png" style="width:60px;height:60px;">
+      </label>
+    <label>
+      <input type="radio" name="Rock_Paper_Scissors" value="paper" onclick = "Rock_Paper_Scissors_game()">
+      <img src="/img/paper.png" style="width:60px;height:60px;">
+    </label>
+    <label>
+      <input type="radio" name="Rock_Paper_Scissors" value="scissors" onclick = "Rock_Paper_Scissors_game()">
+      <img src="/img/scissors.png" style="width:60px;height:60px;">
+    </label>
+    <div id = "user_vs_pc_sings"></div>
+    </div>
+
+    <div class = "quiz_game"> 
+      <h1 id = "quiz_title"> quiz game</h1>
+      <div id = "quiz_question"> </div>
+      <button type="button" id="new_gmae">
+        play quiz game
+      </button>
+    </div>
+
+    <div class="json_ex1">
+      <h1>how to get json file with http</h1>
+      <div id="json_request"></div>
+      <button type="button" id = "json_btn" onclick="get_json()">get json file</button>
+    </div>
+
+    <div class = "Simon_game">
+      <div id= "timeout"></div>
+      <h1>
+        <p id = "simon_level">level:
+          <span id="simon_level">1</span>
+        </p>
+      </h1>
+      </br>
+
+      </br>
+      <button type="button" id = "yellow_btn" class="Simon_btn" data-track='hover'>
+        
+      </button>
+      <button type="button" id = "blue_btn" class="Simon_btn" data-track='hover'>
+        
+      </button> 
+      </br>
+      <button type="button" id = "new_game_simon">
+        new game
+      </button>
+      </br>
+      <button type="button" id = "red_btn" class="Simon_btn" data-track='hover'>
+        
+      </button>
+      <button type="button" id = "green_btn" class="Simon_btn" data-track='hover'>
+        
+      </button>
+    </div>
+  </body>
+</html>

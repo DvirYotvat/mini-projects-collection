@@ -1,0 +1,26 @@
+[
+    {
+        "Animal": "Elephant",
+        "family": "mammal",
+        "food": "vegetarian",
+        "age": 12
+    },
+    {
+        "Animal": "dog",
+        "family": "mammal",
+        "food": "Carnivor",
+        "age": 7
+    },
+    {
+        "Animal": "cat",
+        "family": "mammal",
+        "food": "Carnivor",
+        "age": 5
+    },
+    {
+        "Animal": "Eagle",
+        "family": "birds of prey",
+        "food": "Carnivor",
+        "age": 2
+    }
+]

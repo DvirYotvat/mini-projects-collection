@@ -1,0 +1,163 @@
+body {
+  margin-left: 13%;
+  margin-right: 13%;
+}
+
+.calculator {
+  color: green;
+  margin-top: 5%;
+  background-color: bisque;
+  border: 2px solid black;
+}
+.Question_1 {
+  color: rgb(110, 110, 110);
+  margin-top: 5%;
+  background-color: bisque;
+  border: 2px solid black;
+}
+
+#answer_question_1_a {
+  color: orange;
+}
+#answer_question_1_b {
+  color: orange;
+}
+
+#answer_calculator {
+  color: red;
+}
+
+.rock_paper_scissors_game {
+  background: url("img/paper background.jpg") no-repeat center center;
+  text-align: center;
+  color: black;
+  margin-top: 5%;
+  border: 2px solid black;
+}
+#new_game_rock_paper_scissors {
+  background-color: #adadad;
+  border: 0 solid #e5e7eb;
+  line-height: 50%;
+  padding: 0.75rem 1.65rem;
+  width: 11.5%;
+  transform: rotate(-2deg);
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
+
+#new_game_rock_paper_scissors:after {
+  content: "";
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+#new_game_rock_paper_scissors:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+.quiz_game {
+  background: url("img/paper background.jpg") no-repeat center center;
+  color: black;
+  margin-top: 5%;
+  background-color: bisque;
+  border: 2px solid black;
+}
+#quiz_title {
+  text-align: center center;
+}
+
+.Simon_game {
+  text-align: center;
+  color: black;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: rgb(235, 235, 235);
+  height: 80%;
+  border: 2px solid black;
+}
+
+#simon_level {
+  font-family: "Courier", "monospace";
+  -webkit-font-smoothing: none;
+}
+
+.Simon_btn {
+  width: 24%;
+  height: 24%;
+  border-radius: 10%;
+  text-shadow: 1px 1px 0px #000000;
+  font-size: 200%;
+  font-family: "Courier", "monospace";
+  -webkit-font-smoothing: none;
+  border: 0ch;
+  color: white;
+}
+
+#yellow_btn {
+  background-color: yellow;
+  box-shadow: 0 0 0 1px yellow inset, 0 0 0 3px rgba(0, 0, 0, 0.15) inset,
+    0 8px 0 0 yellow, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2%;
+  margin-right: 2%;
+  bottom: 0;
+  right: 0;
+  border-radius: 100% 0 0 0;
+}
+#yellow_btn:hover {
+  box-shadow: 0 0 0 0px;
+}
+#blue_btn {
+  background-color: blue;
+  box-shadow: 0 0 0 1px blue inset, 0 0 0 3px rgba(0, 0, 0, 0.15) inset,
+    0 8px 0 0 blue, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2%;
+  border-radius: 0 100% 0 0;
+}
+#blue_btn:hover {
+  box-shadow: 0 0 0 0px;
+}
+#red_btn {
+  background-color: red;
+  box-shadow: 0 0 0 1px red inset, 0 0 0 3px rgba(0, 0, 0, 0.15) inset,
+    0 8px 0 0 red, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  margin-right: 2%;
+  border-radius: 0 0 0 100%;
+}
+#red_btn:hover {
+  box-shadow: 0 0 0 0px;
+}
+#green_btn {
+  background-color: green;
+  box-shadow: 0 0 0 1px green inset, 0 0 0 3px rgba(0, 0, 0, 0.15) inset,
+    0 8px 0 0 green, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 100% 0;
+}
+#green_btn:hover {
+  box-shadow: 0 0 0 0px;
+}
+
+#new_game_simon {
+  width: 8%;
+  height: 8%;
+  margin-top: 0.5%;
+  margin-bottom: 1.5%;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 0 1px black inset, 0 0 0 3px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 black, 0 8px 0 1px rgba(255, 255, 255, 0.4),
+    0 8px 8px 1px rgba(255, 255, 255, 0.5);
+}
+#new_game_simon:hover {
+  box-shadow: 0 0 0 0px;
+}
