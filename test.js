@@ -29,27 +29,41 @@ function get_my_details2() {
 
 ////////////////////////////// calculator ////////////////////////////////////////
 
-function calculator_1() {
-  let first = document.getElementById("firstNumber").value;
-  let second = document.getElementById("secondNumber").value;
-  first = parseFloat(first);
-  second = parseFloat(second);
-  let res = first + second;
-  let str = `Result = ${res}`;
-  document.getElementById("answer_calculator").innerHTML = str;
-}
-function calculator_2() {
-  let first = document.getElementById("firstNumber").value;
-  let second = document.getElementById("secondNumber").value;
-  let str = `Result = ${first - second}`;
-  document.getElementById("answer_calculator").innerHTML = str;
-}
-function calculator_3() {
-  let first = document.getElementById("firstNumber").value;
-  let second = document.getElementById("secondNumber").value;
-  let str = `Result = ${first * second}`;
-  document.getElementById("answer_calculator").innerHTML = str;
-}
+let calculator_expression = "";
+
+$(".calculator").ready(function () {
+  $(document).on("keypress", function (e) {
+    let key = String.fromCharCode(e.which);
+    if (!jQuery.isNumeric(key)) {
+      if (key != "+" && key != "-" && key != "*" && key != "/" && key != "=") {
+        return;
+      }
+    }
+    if (key == "=") {
+      if ($("#answer_calculator .br").length > 0) return;
+      $("#answer_calculator").append(`<br class = "br">`);
+      $("#answer_calculator").append(eval(calculator_expression));
+      return;
+    } else {
+      calculator_expression += key;
+    }
+    $("#answer_calculator").html(calculator_expression);
+  });
+  $(".calculator_btns").click(function () {
+    if ($(this).val() == "=") {
+      if ($("#answer_calculator .br").length > 0) return;
+      $("#answer_calculator").append(`<br class = "br">`);
+      $("#answer_calculator").append(eval(calculator_expression));
+      return;
+    } else if ($(this).val() == "clear") {
+      calculator_expression = "";
+      $("#answer_calculator").html(calculator_expression);
+    } else {
+      calculator_expression += $(this).val();
+    }
+    $("#answer_calculator").html(calculator_expression);
+  });
+});
 
 ////////////////////////////// 2 אבן נייר ומספריים ////////////////////////////////////////
 

@@ -3,12 +3,6 @@ body {
   margin-right: 13%;
 }
 
-.calculator {
-  color: green;
-  margin-top: 5%;
-  background-color: bisque;
-  border: 2px solid black;
-}
 .Question_1 {
   color: rgb(110, 110, 110);
   margin-top: 5%;
@@ -23,8 +17,63 @@ body {
   color: orange;
 }
 
+.calculator {
+  /* background: url("img/paper background.jpg") no-repeat center center; */
+  text-align: center;
+  color: green;
+  margin-top: 5%;
+  background-color: rgb(235, 235, 235);
+  border: 2px solid black;
+  height: 80%;
+}
+
 #answer_calculator {
-  color: red;
+  text-align: right;
+  width: 41.1%;
+  height: 10%;
+  margin-left: 29.5%;
+  margin-right: 29.5%;
+  background-color: rgb(219, 219, 219);
+  border: 2px solid black;
+  font-size: 150%;
+}
+
+.calculator_btns {
+  height: 10%;
+  width: 10%;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #c4c4c4;
+  font-size: 2rem;
+  color: rgb(100, 245, 100);
+  box-shadow: 0 9px #999;
+  margin: 0.5%;
+}
+.calculator_btns:hover {
+  height: 10%;
+  width: 10%;
+  background-color: rgb(100, 245, 100);
+  border: 1px solid #c4c4c4;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+.calculator_btns:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#calculator_btn_answer {
+  background-color: rgb(100, 245, 100);
+  color: white;
+  width: 44.1%;
+}
+#calculator_btn_answer:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(100, 245, 100);
+}
+#calculator_btn_answer:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .rock_paper_scissors_game {
@@ -158,12 +207,17 @@ th {
   margin-top: 5%;
   margin-bottom: 5%;
   background-color: rgb(235, 235, 235);
-  height: 80%;
+  height: 95%;
   border: 2px solid black;
 }
 
+#simon_title {
+  font-family: "8BIT WONDER", sans-serif;
+  -webkit-font-smoothing: none;
+}
+
 #simon_level {
-  font-family: "Courier", "monospace";
+  font-family: "8BIT WONDER", sans-serif;
   -webkit-font-smoothing: none;
 }
 
@@ -181,49 +235,45 @@ th {
 
 #yellow_btn {
   background-color: yellow;
-  box-shadow: 0 0 0 1px yellow inset, 0 0 0 3px rgba(0, 0, 0, 0.15) inset,
-    0 8px 0 0 yellow, 0 8px 0 1px rgba(0, 0, 0, 0.4),
-    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 9px #999;
   margin-bottom: 2%;
   margin-right: 2%;
-  bottom: 0;
-  right: 0;
   border-radius: 100% 0 0 0;
 }
-#yellow_btn:hover {
-  box-shadow: 0 0 0 0px;
+
+#yellow_btn:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 #blue_btn {
   background-color: blue;
-  box-shadow: 0 0 0 1px blue inset, 0 0 0 3px rgba(0, 0, 0, 0.15) inset,
-    0 8px 0 0 blue, 0 8px 0 1px rgba(0, 0, 0, 0.4),
-    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 9px #999;
   margin-bottom: 2%;
   border-radius: 0 100% 0 0;
 }
-#blue_btn:hover {
-  box-shadow: 0 0 0 0px;
+
+#blue_btn:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 #red_btn {
   background-color: red;
-  box-shadow: 0 0 0 1px red inset, 0 0 0 3px rgba(0, 0, 0, 0.15) inset,
-    0 8px 0 0 red, 0 8px 0 1px rgba(0, 0, 0, 0.4),
-    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 9px #999;
   margin-right: 2%;
   border-radius: 0 0 0 100%;
 }
-#red_btn:hover {
-  box-shadow: 0 0 0 0px;
+#red_btn:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 #green_btn {
   background-color: green;
-  box-shadow: 0 0 0 1px green inset, 0 0 0 3px rgba(0, 0, 0, 0.15) inset,
-    0 8px 0 0 green, 0 8px 0 1px rgba(0, 0, 0, 0.4),
-    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 9px #999;
   border-radius: 0 0 100% 0;
 }
-#green_btn:hover {
-  box-shadow: 0 0 0 0px;
+#green_btn:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 #new_game_simon {
@@ -238,7 +288,11 @@ th {
   box-shadow: 0 0 0 1px black inset, 0 0 0 3px rgba(255, 255, 255, 0.15) inset,
     0 8px 0 0 black, 0 8px 0 1px rgba(255, 255, 255, 0.4),
     0 8px 8px 1px rgba(255, 255, 255, 0.5);
+
+  font-family: "8BIT WONDER", sans-serif;
+  -webkit-font-smoothing: none;
 }
-#new_game_simon:hover {
-  box-shadow: 0 0 0 0px;
+#new_game_simon:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

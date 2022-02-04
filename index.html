@@ -1,5 +1,6 @@
 <html>
   <head>
+    <link href="http://fonts.cdnfonts.com/css/8bit-wonder" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="test.js"></script>
     <link href="style.css" rel="stylesheet"/>
@@ -29,22 +30,64 @@
       </button>
     </div>
     <div class="calculator">
-      <h1>calculator</h1>
-      Enter first number
-      <input type="number" id="firstNumber"/>
-    </br>
-    Enter second number
-    <input type="number" id="secondNumber"/>
-    <div id="answer_calculator"></div>
-    <button type="button" onclick="calculator_1()">
-      +
-    </button>
-    <button type="button" onclick="calculator_2()">
-      -
-    </button>
-    <button type="button" onclick="calculator_3()">
-      x
-    </button>
+      <h1>calculator (also work with keyboard)</h1>
+      <div id="answer_calculator"></div>
+      </br>
+      <button type="button" class = "calculator_btns" id = "7" value="7">
+        7
+      </button>
+      <button type="button" class = "calculator_btns" value="8">
+        8
+      </button>
+      <button type="button" class = "calculator_btns" value="9">
+        9
+      </button>
+      <button type="button" class = "calculator_btns" value="+">
+        +
+      </button>
+      </br>
+      <button type="button" class = "calculator_btns" value="4">
+        4
+      </button>
+      <button type="button" class = "calculator_btns" value="5">
+        5
+      </button>
+      <button type="button" class = "calculator_btns" value="6">
+        6
+      </button>
+      <button type="button" class = "calculator_btns" value="-">
+        -
+      </button>
+      </br>
+      <button type="button" class = "calculator_btns" value="1">
+        1
+      </button>
+      <button type="button" class = "calculator_btns" value="2">
+        2
+      </button>
+      <button type="button" class = "calculator_btns" value="3">
+        3
+      </button>
+      <button type="button" class = "calculator_btns" value="*">
+        x
+      </button>
+      </br>
+      <button type="button" class = "calculator_btns" value="0">
+        0
+      </button>
+      <button type="button" class = "calculator_btns" value=".">
+        .
+      </button>
+      <button type="button" class = "calculator_btns" value="clear">
+        c
+      </button>
+      <button type="button" class = "calculator_btns" value="/">
+        ÷
+      </button>
+      </br>
+      <button type="button" class = "calculator_btns" value="=" id="calculator_btn_answer">
+        =
+      </button>
     </div>
 
 
@@ -69,7 +112,7 @@
     </div>
 
     <div class = "quiz_game"> 
-      <h1 id = "quiz_title"> quiz game</h1>
+      <h1 id = "quiz_title"> Quiz game</h1>
       <div id = "quiz_question"> </div>
       <button type="button" id="new_gmae">
         play quiz game
@@ -83,7 +126,7 @@
     </div>
 
     <div class = "Simon_game">
-      <div id= "timeout"></div>
+      <h1 id = "simon_title">Welcome to siomn game</h1>
       <h1>
         <p id = "simon_level">level:
           <span id="simon_level">1</span>
@@ -92,10 +135,10 @@
       </br>
 
       </br>
-      <button type="button" id = "yellow_btn" class="Simon_btn" data-track='hover'>
+      <button type="button" id = "yellow_btn" class="Simon_btn">
         
       </button>
-      <button type="button" id = "blue_btn" class="Simon_btn" data-track='hover'>
+      <button type="button" id = "blue_btn" class="Simon_btn">
         
       </button> 
       </br>
@@ -103,10 +146,10 @@
         new game
       </button>
       </br>
-      <button type="button" id = "red_btn" class="Simon_btn" data-track='hover'>
+      <button type="button" id = "red_btn" class="Simon_btn">
         
       </button>
-      <button type="button" id = "green_btn" class="Simon_btn" data-track='hover'>
+      <button type="button" id = "green_btn" class="Simon_btn">
         
       </button>
     </div>
