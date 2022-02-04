@@ -205,6 +205,7 @@ function show_quiz() {
 
 function get_check_button() {
   let user_answer = $('input[name="check_button"]:checked').val();
+  $('input[name="check_button"]:checked').css("background-color", "yellow");
   if (check(user_answer, quiz[quiz_options_index].answer) == false) {
     life--;
     alert("wrong answer!");
@@ -235,32 +236,38 @@ $(".quiz_game").ready(function () {
 });
 
 ////////////////////////////// get json file with http ////////////////////////////////////////
+$(".json_ex1").ready(function () {
+  $("#json_btn").click(function () {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        let data = JSON.parse(xhttp.responseText);
+        let table = '<table id = "json_table">';
 
-function get_json() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(xhttp.responseText);
-      var table = '<table style = "border:1px solid blue" >';
+        table += `<th> <h2> Animal </h2> </th>`;
+        table += `<th> <h2> family </h2> </th>`;
+        table += `<th> <h2> food </h2></th>`;
+        table += `<th> <h2> age </h2> </th>`;
 
-      for (i = 0; i < data.length; i++) {
-        table += "<tr>";
+        for (i = 0; i < data.length; i++) {
+          table += "<tr>";
 
-        table += "<td>" + data[i].Animal + "</td>";
-        table += "<td>" + data[i].family + "</td>";
-        table += "<td>" + data[i].food + "</td>";
-        table += "<td>" + data[i].age + "</td>";
+          table += "<td>" + data[i].Animal + "</td>";
+          table += "<td>" + data[i].family + "</td>";
+          table += "<td>" + data[i].food + "</td>";
+          table += "<td>" + data[i].age + "</td>";
 
-        table += "</tr>";
+          table += "</tr>";
+        }
+        table += "</table>";
+        $("#json_request").html(table);
       }
-      table += "</table>";
-      $("#json_request").html(table);
-    }
-  };
+    };
 
-  xhttp.open("GET", "data.json", true);
-  xhttp.send();
-}
+    xhttp.open("GET", "data.json", true);
+    xhttp.send();
+  });
+});
 
 ////////////////////////////// simon game  ////////////////////////////////////////
 
