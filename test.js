@@ -65,7 +65,7 @@ $(".calculator").ready(function () {
   });
 });
 
-////////////////////////////// 2 אבן נייר ומספריים ////////////////////////////////////////
+////////////////////////////// Rock_Paper_Scissors_game ////////////////////////////////////////
 
 user_score = 0;
 pc_score = 0;
@@ -131,7 +131,7 @@ function make_new_rock_paper_scissors_game() {
   document.getElementById("pc_score").textContent = pc_score;
 }
 
-////////////////////////////// quiz game 2 ////////////////////////////////////////
+////////////////////////////// quiz game  ////////////////////////////////////////
 
 quiz_options_index = 1;
 life = 3;
@@ -235,12 +235,6 @@ function get_check_button() {
   show_quiz(quiz_options_index);
 }
 
-// function new_gmae() {
-//   life = 3;
-//   quiz_options_index = 1;
-//   show_quiz();
-// }
-
 $(".quiz_game").ready(function () {
   $("#new_gmae").click(function () {
     life = 3;
@@ -249,7 +243,8 @@ $(".quiz_game").ready(function () {
   });
 });
 
-////////////////////////////// get json file with http ////////////////////////////////////////
+////////////////////////////// Get json file with http ////////////////////////////////////////
+
 $(".json_ex1").ready(function () {
   $("#json_btn").click(function () {
     let xhttp = new XMLHttpRequest();
@@ -421,3 +416,279 @@ function check_simon() {
     return;
   }
 }
+
+////////////////////////////// memory game ////////////////////////////////////////
+
+$(document).ready(function () {
+  $("#cmdNewGame").click(function () {
+    makeNewGame();
+  });
+  makeNewGame();
+});
+
+function makeNewGame() {
+  let imgArr = [];
+  let numCheck;
+  let temp;
+  let cellCounter = 0;
+  let rightCounter = 0;
+  let clickcount = 0;
+  let fliped = ["", ""];
+  let matchcount = 0;
+  let flip_size = 0;
+
+  $("#matchesCounter").text(matchcount);
+  $("#movesCounter").text(clickcount);
+
+  for (let i = 1; i <= 30; i++) imgArr[i] = i;
+
+  let str = `<table id = 'tbCards'> <tr>`;
+
+  while (1) {
+    numCheck = getRandNumber(31);
+    cellCounter = 0;
+
+    if (imgArr[numCheck] != null) {
+      if (numCheck > 15) {
+        imgArr[numCheck] = null;
+        numCheck = numCheck - 15;
+      } else imgArr[numCheck] = null;
+
+      rightCounter++;
+      temp = `<img src="img/backCard.png" id=img/${numCheck.toString()} class="card">`;
+      str += `<td> ${temp} </td>`;
+    }
+    if (rightCounter == 5) {
+      rightCounter = 0;
+      str += `</tr> <tr>`;
+    }
+
+    for (let i = 1; i < imgArr.length + 1; i++) {
+      if (imgArr[i] == null) cellCounter++;
+    }
+
+    if (cellCounter >= imgArr.length) {
+      break;
+    }
+  }
+
+  str += `</tr>`;
+
+  $(".board").html(str);
+  $(".card").click((e) => {
+    let temp2 = $(e.target);
+    if (temp2.hasClass("flip")) return;
+    clickcount += 1;
+
+    if (flip_size == 2) {
+      $(".flip").attr("src", "img/backCard.png");
+      $(".flip").toggleClass("flip");
+      flip_size = 0;
+    }
+
+    if (clickcount % 2 == 1) {
+      flip_size++;
+      temp2.toggleClass("flip");
+      fliped[0] = temp2.attr("id");
+      temp2.attr("src", `${temp2.attr("id")}.png`);
+      return;
+    }
+
+    if (clickcount % 2 == 0) {
+      flip_size++;
+      temp2.toggleClass("flip");
+      fliped[1] = temp2.attr("id");
+      temp2.attr("src", `${temp2.attr("id")}.png`);
+      $("#movesCounter").text(clickcount / 2);
+    }
+
+    if (fliped[0] == fliped[1]) {
+      $(".flip").unbind();
+      $(".flip").toggleClass("flip");
+      matchcount += 1;
+      $("#matchesCounter").text(matchcount);
+    }
+    if (matchcount == 15)
+      alert(`you won!!!! it's only took you ${clickcount / 2} moves`);
+  });
+}
+
+function getRandNumber(max) {
+  return Math.floor(Math.random() * max + 1);
+}
+
+////////////////////////////// click counter with local storage ////////////////////////////////////////
+
+$(".click_counter_local_storage").ready(function () {
+  // counter the clicks
+  $("#click_me_counter").click(function () {
+    // check if we can use local storage
+    if (typeof Storage !== "undefinde") {
+      if (localStorage.num_of_clicks) {
+        // add click to the storage
+        localStorage.num_of_clicks = parseInt(localStorage.num_of_clicks) + 1;
+        // case storage empty
+      } else localStorage.num_of_clicks = 1;
+
+      $("#click_count").html(
+        `you clicked the button ${localStorage.num_of_clicks} times`
+      );
+      // case we cant use local storage
+    } else alert("Soory, your browser dose not support web storage");
+  });
+  // remove the clicks
+  $("#click_me_reset").click(function () {
+    // check if we can use local storage
+    if (typeof Storage !== "undefinde") {
+      if (localStorage.num_of_clicks) {
+        localStorage.removeItem("num_of_clicks");
+      }
+      $("#click_count").html("click counter has reset");
+      // case we cant use local storage
+    } else alert("Soory, your browser dose not support web storage");
+  });
+});
+
+////////////////////////////// login and logout with local storage ////////////////////////////////////////
+
+$(".log_in").ready(function () {
+  // check if user already login
+  // case user login show div of "sucsses_login" and hide div of login
+  if (localStorage.getItem("userName")) {
+    $(".sucsses_login").show();
+    $("#login_form").hide();
+
+    // delet local storage after 5 min (log out after 5 min)
+    let expire_date = new Date();
+    expire_date = expire_date.getMinutes();
+    if (expire_date + 5 > 60) expire_date = expire_date - 60;
+    if (expire_date >= localStorage.getItem("expire")) {
+      localStorage.removeItem("expire");
+      localStorage.removeItem("userName");
+    }
+    // case user not login hide div of "sucsses_login"
+  } else {
+    $(".sucsses_login").hide();
+  }
+
+  // case user click logout, show div of login and hide div of "sucsses_login" and delete the user from the local storage
+  $("#log_out_submit").click(function () {
+    $(".sucsses_login").hide();
+    $("#login_form").show();
+    localStorage.removeItem("userName");
+  });
+
+  // case user try to login
+  // get file json of users and passwords and check if the user exsist
+  $("#login_submit").click(function () {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        let data = JSON.parse(xhttp.responseText);
+        // get user and password from the html
+        let user = $("#user_name").val();
+        let password = $("#user_password").val();
+        let flag = false;
+        let date = new Date();
+
+        // check if what the user enter is on the json file of exsist users
+        for (i = 0; i < data.length; i++) {
+          if (data[i].user_name == user && data[i].password == password) {
+            flag = true;
+          }
+        }
+        // if user exsist show div of "sucsses_login" and hide div of login and add the user to local storage
+        if (flag == true) {
+          $(".sucsses_login").show();
+          $("#login_form").hide();
+          // save the user in the local storage
+          localStorage.setItem("userName", user);
+          // set 5 min until log out
+          let expire = date.getMinutes() + 5;
+          if (expire > 60) expire = expire - 60;
+          localStorage.expire = expire;
+        }
+        // case the user dos not exsist alert error
+        else alert("login error");
+      }
+    };
+
+    // http call to get the json file
+    xhttp.open("GET", "login.json", true);
+    xhttp.send();
+  });
+});
+
+////////////////////////////// Animal classes and extend (Object oriented)////////////////////////////////////////
+
+$(".animals_classes").ready(function () {
+  class Animal {
+    constructor(theName) {
+      this.name = theName;
+    }
+    move(typeOfWalk, distanceInMeters) {
+      this.walk = `${this.name} ${typeOfWalk} ${distanceInMeters}m.`;
+    }
+  }
+
+  class Snake extends Animal {
+    constructor(name) {
+      super(name);
+    }
+    move(typeOfWalk, distanceInMeters = 5) {
+      super.move(typeOfWalk, distanceInMeters);
+    }
+  }
+
+  class Horse extends Animal {
+    constructor(name) {
+      super(name);
+    }
+    move(typeOfWalk, distanceInMeters = 45) {
+      super.move(typeOfWalk, distanceInMeters);
+    }
+  }
+
+  $("#submit_new_animal").click(function () {
+    let animal = $('input[name="animal_type"]:checked').val();
+    let animal_name = $("#animal_name").val();
+    let animal_dis = $("#animal_destance").val();
+    let my_animal;
+
+    if (animal == "horse") {
+      my_animal = new Horse(animal_name);
+      if (animal_dis != "") my_animal.move("Galloping...", animal_dis);
+      else my_animal.move("Galloping...");
+      $("#show_animal_img").html(
+        `<img src="img/horse.png" style="height:30%;">`
+      );
+    } else if (animal == "snake") {
+      my_animal = new Snake(animal_name);
+      if (animal_dis != "") my_animal.move("Slithering...", animal_dis);
+      else my_animal.move("Slithering...");
+      $("#show_animal_img").html(
+        `<img src="img/snake.png" style="height:30%;">`
+      );
+    }
+    $("#show_animal").html(my_animal.walk);
+  });
+});
+
+////////////////////////////// Async analog clock ////////////////////////////////////////
+
+$(".show_time").ready(function () {
+  window.setInterval(function () {
+    let time = new Date();
+    let time_hour = time.getHours();
+    let time_min = time.getMinutes();
+    let time_sec = time.getSeconds();
+
+    let hour_deg = 30 * time_hour + time_min / 2;
+    let min_deg = 6 * time_min;
+    let sec_deg = 6 * time_sec;
+    "transform", "rotate(" + 30 + "deg)";
+    $("#clock_second").css(`transform`, `rotate(${sec_deg}deg)`);
+    $("#clock_minute").css(`transform`, `rotate(${min_deg}deg)`);
+    $("#clock_hour").css(`transform`, `rotate(${hour_deg}deg)`);
+  }, 1000);
+});
