@@ -506,6 +506,14 @@ input[id="animal_destance"] {
 
 /* ////////////////////////////// Async analog clock //////////////////////////////////////// */
 
+.clock {
+  margin-top: 10%;
+  text-align: center;
+  background-color: rgb(219, 214, 214, 0.4);
+  /* opacity: 0.8; */
+  border-radius: 10% 10% 10% 10%;
+}
+
 .show_time {
   background: url("img/watch.png") no-repeat center center;
   background-size: 83%;
