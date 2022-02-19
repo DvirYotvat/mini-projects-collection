@@ -508,7 +508,7 @@ input[id="animal_destance"] {
 
 .show_time {
   background: url("img/watch.png") no-repeat center center;
-  background-size: 65%;
+  background-size: 83%;
   position: relative;
   margin: auto;
   height: 40vw;
@@ -527,24 +527,24 @@ input[id="animal_destance"] {
 
 #clock_hour {
   width: 1.8%;
-  height: 10%;
-  top: 41%;
-  left: 46%;
+  height: 18%;
+  top: 39%;
+  left: 49%;
   opacity: 0.8;
 }
 
 #clock_minute {
   width: 1.6%;
-  height: 16%;
-  top: 35%;
-  left: 46%;
+  height: 24%;
+  top: 33%;
+  left: 49%;
   opacity: 0.8;
 }
 
 #clock_second {
   width: 1%;
-  height: 26%;
-  top: 25%;
-  left: 46.3%;
+  height: 34%;
+  top: 23%;
+  left: 49.3%;
   opacity: 0.8;
 }
