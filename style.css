@@ -82,7 +82,7 @@ body {
 /* ////////////////////////////// Rock_Paper_Scissors_game //////////////////////////////////////// */
 
 .rock_paper_scissors_game {
-  background: url("img/paper background.jpg") no-repeat center center;
+  background: url("imgs/paper background.jpg") no-repeat center center;
   text-align: center;
   color: black;
   margin-top: 5%;
@@ -117,7 +117,7 @@ body {
 /* ////////////////////////////// Quiz game  //////////////////////////////////////// */
 
 .quiz_game {
-  background: url("img/paper background.jpg") no-repeat center center;
+  background: url("imgs/paper background.jpg") no-repeat center center;
   color: black;
   margin-top: 5%;
   background-color: bisque;
@@ -314,7 +314,8 @@ table#json_table th {
 }
 
 .board {
-  background: url("img/underwater.jpg") no-repeat center center fixed;
+  background: url("imgs/memory_game/underwater.jpg") no-repeat center center
+    fixed;
   box-sizing: border-box;
   justify-content: center;
 }
@@ -413,7 +414,7 @@ table#json_table th {
 /* ////////////////////////////// Login and logout with local storage //////////////////////////////////////// */
 
 .log_in {
-  background: url("img/background.jpg") no-repeat center center;
+  background: url("imgs/login/background.jpg") no-repeat center center;
   height: 100%;
   text-align: center;
 }
@@ -515,7 +516,7 @@ input[id="animal_destance"] {
 }
 
 .show_time {
-  background: url("img/watch.png") no-repeat center center;
+  background: url("imgs/sync clock/watch.png") no-repeat center center;
   background-size: 83%;
   position: relative;
   margin: auto;

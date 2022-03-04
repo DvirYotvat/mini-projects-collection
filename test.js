@@ -109,7 +109,7 @@ function Rock_Paper_Scissors_game() {
   }
   let pc_sing = random_sing();
   let res = comper_sings(user_answer, pc_sing);
-  let str = `USER: <img id = "user_vs_pc" src="/img/${user_answer}.png" style="width:60px;height:60px;"> <h1>vs</h1>  PC: <img id = "user_vs_pc" src="/img/${pc_sing}.png" style="width:60px;height:60px;">`;
+  let str = `USER: <img id = "user_vs_pc" src="/imgs/rock paper scissors/${user_answer}.png" style="width:60px;height:60px;"> <h1>vs</h1>  PC: <img id = "user_vs_pc" src="/imgs/rock paper scissors/${pc_sing}.png" style="width:60px;height:60px;">`;
   document.getElementById("user_vs_pc_sings").innerHTML = str;
   if (res == "sing1") {
     alert("player wins");
@@ -455,7 +455,7 @@ function makeNewGame() {
       } else imgArr[numCheck] = null;
 
       rightCounter++;
-      temp = `<img src="img/backCard.png" id=img/${numCheck.toString()} class="card">`;
+      temp = `<img src="imgs/memory_game/backCard.png" id=imgs/memory_game/${numCheck.toString()} class="card">`;
       str += `<td> ${temp} </td>`;
     }
     if (rightCounter == 5) {
@@ -481,7 +481,7 @@ function makeNewGame() {
     clickcount += 1;
 
     if (flip_size == 2) {
-      $(".flip").attr("src", "img/backCard.png");
+      $(".flip").attr("src", "imgs/memory_game/backCard.png");
       $(".flip").toggleClass("flip");
       flip_size = 0;
     }
@@ -660,14 +660,14 @@ $(".animals_classes").ready(function () {
       if (animal_dis != "") my_animal.move("Galloping...", animal_dis);
       else my_animal.move("Galloping...");
       $("#show_animal_img").html(
-        `<img src="img/horse.png" style="height:30%;">`
+        `<img src="imgs/classes_js/horse.png" style="height:30%;">`
       );
     } else if (animal == "snake") {
       my_animal = new Snake(animal_name);
       if (animal_dis != "") my_animal.move("Slithering...", animal_dis);
       else my_animal.move("Slithering...");
       $("#show_animal_img").html(
-        `<img src="img/snake.png" style="height:30%;">`
+        `<img src="imgs/classes_js/snake.png" style="height:30%;">`
       );
     }
     $("#show_animal").html(my_animal.walk);
